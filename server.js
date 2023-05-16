@@ -17,6 +17,7 @@ app.get('/', function (req, res) {
 })
 
 const filename = __dirname + '/index.html';
+
 app.get('/toligado', function (req, res) {
 
 const fileContents = fs.readFileSync(filename).toString();
@@ -25,11 +26,19 @@ console.log(fileContents);
   res.send(fileContents )
 })
 
+app.get('/juniordabolacha', function (req, res) {
+
+  const fileContents = fs.readFileSync(filename).toString();
+  
+  console.log(fileContents);
+    res.send(fileContents )
+  })
+
 const PORT = 9000;
 
 app.listen(PORT, () => {
   console.log('Servidor pronto p execução na porta: ', PORT);
   console.log('Você pode fazer requests agora da seguinte forma: ');
-  console.log(`GET fetch("http://localhost:${PORT}?abraao") `);
+  console.log(`GET fetch("http://localhost:${PORT}") `);
 
 })
